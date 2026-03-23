@@ -19,7 +19,7 @@ pipeline {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'aws-iam-user-creds'
                 ]]) {
-                    sh 'terraform init'
+                    sh 'terraform init -migrate-state'
                 }
             }
         }
