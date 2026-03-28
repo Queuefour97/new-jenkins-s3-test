@@ -59,13 +59,13 @@ resource "aws_s3_object" "object3" {
 }
 resource "aws_s3_object" "object4" {
   bucket = aws_s3_bucket.frontend.bucket
-  key    = "images/s3bucketjenkins.png"
-  source = "./s3bucketjenkins.png"
+  key    = "images/s3bucketinjenkins.png"
+  source = "./s3bucketinjenkins.png"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("./s3bucketjenkins.png")
+  etag = filemd5("./s3bucketinjenkins.png")
 }
 resource "aws_s3_object" "object5" {
   bucket = aws_s3_bucket.frontend.bucket
