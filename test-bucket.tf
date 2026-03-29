@@ -87,3 +87,64 @@ resource "aws_s3_object" "object6" {
   # etag = "${md5(file("path/to/file"))}"
   etag = filemd5("./webhook_proof2.png")
 }
+
+resource "aws_s3_object" "object7" {
+  bucket = aws_s3_bucket.frontend.bucket
+  key    = "images/armageddon_repo_screenshot_non_forked.png"
+  source = "./armageddon_repo_screenshot_non_forked.png"
+
+  # The filemd5() function is available in Terraform 0.11.12 and later
+  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
+  # etag = "${md5(file("path/to/file"))}"
+  etag = filemd5("./armageddon_repo_screenshot_non_forked.png")
+}
+
+resource "aws_s3_object" "object8" {
+  bucket = aws_s3_bucket.frontend.bucket
+  key    = "images/armageddon_repo_link.md"
+  source = "./armageddon_repo_link.md"
+
+  # The filemd5() function is available in Terraform 0.11.12 and later
+  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
+  # etag = "${md5(file("path/to/file"))}"
+  etag = filemd5("./armageddon_repo_link.md")
+}
+
+resource "aws_s3_object" "object9" {
+  bucket = aws_s3_bucket.frontend.bucket
+  key    = "images/lab3b_runbook.docx"
+  source = "./lab3b_runbook.docx"
+
+  # The filemd5() function is available in Terraform 0.11.12 and later
+  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
+  # etag = "${md5(file("path/to/file"))}"
+  etag = filemd5("./lab3b_runbook.docx")
+}
+resource "aws_s3_bucket_public_access_block" "frontend_public_access" {
+  bucket = aws_s3_bucket.frontend.bucket
+
+
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+resource "aws_s3_bucket_policy" "public_access" {
+  bucket = aws_s3_bucket.frontend.bucket
+
+  depends_on = [aws_s3_bucket_public_access_block.frontend_public_access]
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = ["s3:GetObject"]
+        Resource  = "${aws_s3_bucket.frontend.arn}/*"
+      }
+    ]
+  })
+}
