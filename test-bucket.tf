@@ -102,23 +102,24 @@ resource "aws_s3_object" "object7" {
 resource "aws_s3_object" "object8" {
   bucket = aws_s3_bucket.frontend.bucket
   key    = "images/armageddon_repo_link.md"
-  source = "./armageddon_repo_link.md"
+  source = "${path.module}/armageddon_repo_link.md"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("./armageddon_repo_link.md")
+  etag = filemd5("${path.module}/armageddon_repo_link.md")
+  
 }
 
 resource "aws_s3_object" "object9" {
   bucket = aws_s3_bucket.frontend.bucket
   key    = "images/lab3b_runbook.docx"
-  source = "./lab3b_runbook.docx"
+  source = "${path.module}/lab3b_runbook.docx"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("./lab3b_runbook.docx")
+  etag = filemd5("${path.module}/lab3b_runbook.docx")
 }
 resource "aws_s3_bucket_public_access_block" "frontend_public_access" {
   bucket = aws_s3_bucket.frontend.bucket
