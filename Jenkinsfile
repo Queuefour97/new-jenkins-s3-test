@@ -59,6 +59,17 @@ pipeline {
             }
         }
 
+    stage('Terraform Apply') {
+            steps {
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-iam-user-creds'
+                ]]) {
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+
         stage('Optional Destroy') {
             steps {
                 script {
