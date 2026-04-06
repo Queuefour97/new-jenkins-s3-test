@@ -14,17 +14,30 @@ pipeline {
             }
         }
 
+        // stage('Snyk IaC Scan Test') {
+        //     steps {
+        //         withCredentials([string(credentialsId: 'snyk-api-token-string', variable: 'SNYK_TOKEN')]) {
+        //             sh '''
+        //                 export PATH=$PATH:/var/lib/jenkins/tools/io.snyk.jenkins.tools.SnykInstallation/snyk
+        //                 snyk-linux auth $SNYK_TOKEN
+        //                 snyk-linux iac test --org=$SNYK_ORG --severity-threshold=high || true
+        //             '''
+        //         }
+        //     }
+        // }  
+
         stage('Snyk IaC Scan Test') {
-            steps {
-                withCredentials([string(credentialsId: 'snyk-api-token-string', variable: 'SNYK_TOKEN')]) {
-                    sh '''
-                        export PATH=$PATH:/var/lib/jenkins/tools/io.snyk.jenkins.tools.SnykInstallation/snyk
-                        snyk-linux auth $SNYK_TOKEN
-                        snyk-linux iac test --org=$SNYK_ORG --severity-threshold=high || true
-                    '''
-                }
+    steps {
+        withCredentials([string(credentialsId: 'snyk-token', variable: 'SNYK_TOKEN')]) {
+            withEnv(["PATH+SNYK=${tool 'snyk'}"]) {
+                sh 'snyk auth ${SNYK_TOKEN}'
+                sh 'snyk iac test --org=${SNYK_ORG} || true'
             }
-        }        
+        }
+    }
+}
+
+
         stage('Snyk IaC Scan Monitor') {
             steps {
                 snykSecurity(
