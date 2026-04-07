@@ -5,6 +5,10 @@
 ## 
 ## 04072026 - tried again and pipeline failed
 ## uncommented lines 17 - 27 -> trying again
-## changed the date to actived the Jenkins ## webhook
+## changed the date to actived the Jenkins 
+## webhook
+##
+## 04072026 - deleted lines 17-27 because the 
+## commented-out scan had the same name
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks
