@@ -14,6 +14,12 @@
 ##
 ## 04112026 - re-running Jenkins to try to figure out error prior to 
 ## class; Snyk is down for maintenance until 1:00pm
+## 
+## 04112026 - Commented out lines 17-27 IaC Scen Test
+##
+## 04112026 - It is after 1:00pm. Snyk is back up after maintenance.
+## will try a pipeline now
+##
 ##
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks

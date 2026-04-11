@@ -16,14 +16,14 @@ pipeline {
 
          
 
-        stage('Snyk IaC Scan Test') {
-    steps {
-        withCredentials([string(credentialsId: 'snyk-token', variable: 'SNYK_TOKEN')]) {
-            withEnv(["PATH+SNYK=${tool 'snyk'}"]) {
-                sh 'snyk auth ${SNYK_TOKEN}'
-                sh 'snyk iac test --org=${SNYK_ORG} || true'
-            }
-        }
+    //     stage('Snyk IaC Scan Test') {
+    // steps {
+    //     withCredentials([string(credentialsId: 'snyk-token', variable: 'SNYK_TOKEN')]) {
+    //         withEnv(["PATH+SNYK=${tool 'snyk'}"]) {
+    //             sh 'snyk auth ${SNYK_TOKEN}'
+    //             sh 'snyk iac test --org=${SNYK_ORG} || true'
+    //         }
+    //     }
     }
 }
 
