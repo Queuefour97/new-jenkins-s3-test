@@ -20,7 +20,8 @@
 ## 04112026 - It is after 1:00pm. Snyk is back up after maintenance.
 ## will try a pipeline now
 ##
-##
+## 
 ## 04132026 - updated Jenkins file
+## 04132026 - this is tedious
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks
