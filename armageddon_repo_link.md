@@ -32,5 +32,7 @@
 ##
 ## 04142026 - trying webhook again
 ##
+## 04142026 - commented out lines 17 - 27
+##
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks
