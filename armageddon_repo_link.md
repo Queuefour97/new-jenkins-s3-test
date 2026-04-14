@@ -24,6 +24,10 @@
 ## 04132026 - updated Jenkins file
 ## 04132026 - this is tedious
 ##
-## 04132026 - making this change to test manual run
+## 04132026 - making this change to test manual ## run
+## 
+## 04142026 - setting up for class - tuesday
+## 04142026 - yesterday spelling errors: 
+## spelled snyk as synk
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks
