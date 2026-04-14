@@ -29,5 +29,8 @@
 ## 04142026 - setting up for class - tuesday
 ## 04142026 - yesterday spelling errors: 
 ## spelled snyk as synk
+##
+## 04142026 - trying webhook again
+##
 ## https://github.com/Queuefour97/student_deliverables_Armageddon
 ## https://github.com/Queuefour97/new-jenkins-s3-test/settings/hooks
